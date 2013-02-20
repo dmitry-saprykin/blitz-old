@@ -1,0 +1,50 @@
+#netbeans project
+nbproject
+
+#phpize output
+Makefile
+Makefile.*
+acinclude.m4
+aclocal.m4
+autom4te.cache
+build
+config.guess
+config.h.in
+config.h
+config.log
+config.sub
+config.nice
+config.status
+.libs
+libtool
+configure
+configure.in
+install-sh
+ltmain.sh
+missing
+mkinstalldirs
+run-tests.php
+tests
+
+#extension build ignore
+.deps
+*.lo
+*.la
+
+# Object files
+*.o
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
