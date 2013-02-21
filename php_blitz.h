@@ -80,14 +80,14 @@ ZEND_END_MODULE_GLOBALS(blitz)
 
 #define BLITZ_MAX_LIST_SIZE     65535
 
-#define BLITZ_TYPE_VAR      	1	
-#define BLITZ_TYPE_METHOD       2	
+#define BLITZ_TYPE_VAR      	1
+#define BLITZ_TYPE_METHOD       2
 #define BLITZ_IS_VAR(type)      (type & BLITZ_TYPE_VAR)
 #define BLITZ_IS_METHOD(type)   (type & BLITZ_TYPE_METHOD)
 
 #define BLITZ_ARG_TYPE_VAR		    1
 #define BLITZ_ARG_TYPE_VAR_PATH	    2
-#define BLITZ_ARG_TYPE_STR          4 
+#define BLITZ_ARG_TYPE_STR          4
 #define BLITZ_ARG_TYPE_NUM          8
 #define BLITZ_ARG_TYPE_BOOL         16
 #define BLITZ_ARG_TYPE_FLOAT        32
@@ -107,7 +107,7 @@ ZEND_END_MODULE_GLOBALS(blitz)
 /* tags to separate HTML from blitz code: all these constants must be changed synchronously! */
 
 #define BLITZ_ENABLE_ALTERNATIVE_TAGS   1
-#define BLITZ_ENABLE_COMMENTS           1 
+#define BLITZ_ENABLE_COMMENTS           1
 
 #define BLITZ_TAG_OPEN                  "{{"
 #define BLITZ_TAG_CLOSE                 "}}"
@@ -119,7 +119,7 @@ ZEND_END_MODULE_GLOBALS(blitz)
 
 #define BLITZ_TAG_ID_OPEN               0
 #define BLITZ_TAG_ID_OPEN_ALT           1
-#define BLITZ_TAG_ID_CLOSE              2 
+#define BLITZ_TAG_ID_CLOSE              2
 #define BLITZ_TAG_ID_CLOSE_ALT          3
 #define BLITZ_TAG_ID_COMMENT_OPEN       4
 #define BLITZ_TAG_ID_COMMENT_CLOSE      5
@@ -129,7 +129,7 @@ ZEND_END_MODULE_GLOBALS(blitz)
 
 /* tag analizer states */
 #define BLITZ_ANALISER_STATE_LIST_LEN       7
-#define BLITZ_ANALISER_STATE_NONE           0 
+#define BLITZ_ANALISER_STATE_NONE           0
 #define BLITZ_ANALISER_STATE_OPEN           1 + BLITZ_TAG_ID_OPEN
 #define BLITZ_ANALISER_STATE_CLOSE          1 + BLITZ_TAG_ID_CLOSE
 #define BLITZ_ANALISER_STATE_OPEN_ALT       1 + BLITZ_TAG_ID_OPEN_ALT
@@ -140,9 +140,9 @@ ZEND_END_MODULE_GLOBALS(blitz)
 /* tag analizer actions */
 #define BLITZ_ANALISER_ACTION_NONE          0
 #define BLITZ_ANALISER_ACTION_ADD           1
-#define BLITZ_ANALISER_ACTION_IGNORE_PREV   2 
+#define BLITZ_ANALISER_ACTION_IGNORE_PREV   2
 #define BLITZ_ANALISER_ACTION_ERROR_PREV    3
-#define BLITZ_ANALISER_ACTION_IGNORE_CURR   4 
+#define BLITZ_ANALISER_ACTION_IGNORE_CURR   4
 #define BLITZ_ANALISER_ACTION_ERROR_CURR    5
 #define BLITZ_ANALISER_ACTION_ERROR_BOTH    6
 
@@ -162,7 +162,7 @@ ZEND_END_MODULE_GLOBALS(blitz)
         ||                                                                                  \
         ('b' == s[0] && 'e' == s[1] && 'g' == s[2] && 'i' == s[3] && 'n' == s[4]))          \
     )
-    
+
 #define BLITZ_STRING_IS_END(s, len)                                                         \
     ((3 == len) &&                                                                          \
         (('E' == s[0] && 'N' == s[1] && 'D' == s[2])                                        \
@@ -228,7 +228,7 @@ ZEND_END_MODULE_GLOBALS(blitz)
         ('p' == s[0] && 'h' == s[1] && 'p' == s[2] && ':' == s[3] && ':' == s[4]))          \
     )
 
-#define BLITZ_THIS_NAMESPACE_SHIFT  6 
+#define BLITZ_THIS_NAMESPACE_SHIFT  6
 #define BLITZ_STRING_THIS_NAMESPACE(s, len)                                                            \
     ((len >= 6) &&                                                                                     \
         (('T' == s[0] && 'H' == s[1] && 'I' == s[2] && 'S' == s[3] && ':' == s[4] && ':' == s[5])      \
@@ -249,13 +249,13 @@ ZEND_END_MODULE_GLOBALS(blitz)
 #define BLITZ_NODE_TYPE_CONDITION               (7 << 2 | BLITZ_TYPE_METHOD) /* {{ BEGIN a }} bla-bla {{ END }} */
 // reserved +3 base types
 
-#define BLITZ_NODE_TYPE_WRAPPER_ESCAPE          (11 << 2 | BLITZ_TYPE_METHOD) 
-#define BLITZ_NODE_TYPE_WRAPPER_DATE            (12 << 2 | BLITZ_TYPE_METHOD) 
-#define BLITZ_NODE_TYPE_WRAPPER_UPPER           (13 << 2 | BLITZ_TYPE_METHOD) 
-#define BLITZ_NODE_TYPE_WRAPPER_LOWER           (14 << 2 | BLITZ_TYPE_METHOD) 
-#define BLITZ_NODE_TYPE_WRAPPER_TRIM            (15 << 2 | BLITZ_TYPE_METHOD) 
+#define BLITZ_NODE_TYPE_WRAPPER_ESCAPE          (11 << 2 | BLITZ_TYPE_METHOD)
+#define BLITZ_NODE_TYPE_WRAPPER_DATE            (12 << 2 | BLITZ_TYPE_METHOD)
+#define BLITZ_NODE_TYPE_WRAPPER_UPPER           (13 << 2 | BLITZ_TYPE_METHOD)
+#define BLITZ_NODE_TYPE_WRAPPER_LOWER           (14 << 2 | BLITZ_TYPE_METHOD)
+#define BLITZ_NODE_TYPE_WRAPPER_TRIM            (15 << 2 | BLITZ_TYPE_METHOD)
 // reserved +5 wrappers
-// put all other wrappers here with codes less than BLITZ_NODE_TYPE_IF_NF, because 
+// put all other wrappers here with codes less than BLITZ_NODE_TYPE_IF_NF, because
 // wrapper check in blitz.c is type >= BLITZ_NODE_TYPE_WRAPPER_ESCAPE &&  type < BLITZ_NODE_TYPE_IF_NF
 
 #define BLITZ_NODE_TYPE_IF_NF                   (21<< 2 | BLITZ_TYPE_METHOD) /* non-finalized -> IF_CONTEXT */
@@ -298,6 +298,8 @@ ZEND_END_MODULE_GLOBALS(blitz)
 #define BLITZ_ESCAPE_YES        2
 #define BLITZ_ESCAPE_NL2BR      3
 
+#define BLITZ_CONSTANT_FLAGS (CONST_CS | CONST_PERSISTENT)
+
 /* simple string with length */
 typedef struct {
     char *s;
@@ -336,7 +338,7 @@ typedef struct _blitz_node {
     unsigned char escape_mode;
     char hidden;
     char namespace_code;
-    char lexem[BLITZ_MAX_LEXEM_LEN]; 
+    char lexem[BLITZ_MAX_LEXEM_LEN];
     unsigned long lexem_len;
     call_arg *args;
     unsigned char n_args;
@@ -386,7 +388,7 @@ typedef struct _blitz_tpl {
     unsigned int itpl_list_len;
     unsigned int loop_stack_level;
     struct _blitz_tpl *tpl_parent; /* parent template for included */
-    struct _blitz_loop_stack_item loop_stack[BLITZ_LOOP_STACK_MAX]; 
+    struct _blitz_loop_stack_item loop_stack[BLITZ_LOOP_STACK_MAX];
     zval *scope_stack[BLITZ_SCOPE_STACK_MAX];
     unsigned int scope_stack_pos;
     char *error;
@@ -413,9 +415,9 @@ typedef struct _blitz_analizer_ctx {
     struct _blitz_analizer_stack_elem node_stack[BLITZ_ANALIZER_NODE_STACK_LEN];
     unsigned int node_stack_len;
     struct _blitz_node *node;
-    unsigned long current_open; 
-    unsigned long current_close; 
-    unsigned long close_len; 
+    unsigned long current_open;
+    unsigned long current_close;
+    unsigned long close_len;
     unsigned int true_lexem_len;
 } analizer_ctx;
 
@@ -567,7 +569,7 @@ typedef struct _blitz_analizer_ctx {
 
 #define BLITZ_CALL_STATE_NEXT_ARG    1
 #define BLITZ_CALL_STATE_FINISHED    2
-#define BLITZ_CALL_STATE_HAS_NEXT    3 
+#define BLITZ_CALL_STATE_HAS_NEXT    3
 #define BLITZ_CALL_STATE_BEGIN       4
 #define BLITZ_CALL_STATE_END         5
 #define BLITZ_CALL_STATE_IF          6
@@ -629,7 +631,7 @@ typedef struct _blitz_analizer_ctx {
         if ((a).name && (a).len>0) {                                                              \
             zend_hash_find(ht, (a).name, 1 + (a).len, (void**)&z);                                \
         }                                                                                         \
-    }                                                                                             
+    }
 
 // switch (Z_TYPE_PP(z)) : see 10 lines upper
 // well, we cannot set non-scalar template value, but if ever...
@@ -674,7 +676,7 @@ typedef struct _blitz_analizer_ctx {
         tpl->loop_stack_level++;                                                                  \
     }                                                                                             \
     tpl->loop_stack[tpl->loop_stack_level].current = 0;                                           \
-    tpl->loop_stack[tpl->loop_stack_level].total = 0;                                               
+    tpl->loop_stack[tpl->loop_stack_level].total = 0;
 
 #define BLITZ_LOOP_MOVE_BACK(tpl)                                                                 \
     if (tpl->loop_stack_level>0) {                                                                \
