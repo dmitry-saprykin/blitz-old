@@ -166,7 +166,24 @@
        * @return bool
        */
       public function setGlobal($parameters)
-      {}      
+      {}
+
+      /**
+       * Returns template path list.
+       *
+       * @return array
+       */
+      public function getStructure()
+      {}
+
+      /**
+       * Returns tokenized template structure.
+       * Just like dumpStruct but returns structure array.
+       *
+       * @return array
+       */
+      public function getTokens()
+      {}
     }
     
   }

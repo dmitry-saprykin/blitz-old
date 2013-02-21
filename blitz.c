@@ -861,18 +861,21 @@ static void php_blitz_get_node_tokens(blitz_node *node, zval *list) /* {{{ */
     add_assoc_long(node_token, "end_shift", node->pos_end_shift);
 
     if (BLITZ_IS_METHOD(node->type)) {
-        ALLOC_INIT_ZVAL(args_list);
-        array_init(args_list);
-        for (j = 0; j < node->n_args; ++j) {
-            ALLOC_INIT_ZVAL(arg);
-            array_init(arg);
-            add_assoc_stringl(arg, "name", node->args[j].name, node->args[j].len, 1);
-            add_assoc_long(arg, "type", node->args[j].type);
 
-            add_next_index_zval(args_list, arg);
+        if( node->n_args > 0 ) {
+            ALLOC_INIT_ZVAL(args_list);
+            array_init(args_list);
+            for (j = 0; j < node->n_args; ++j) {
+                ALLOC_INIT_ZVAL(arg);
+                array_init(arg);
+                add_assoc_stringl(arg, "name", node->args[j].name, node->args[j].len, 1);
+                add_assoc_long(arg, "type", node->args[j].type);
+
+                add_next_index_zval(args_list, arg);
+            }
+
+            add_assoc_zval(node_token, "args", args_list);
         }
-
-        add_assoc_zval(node_token, "args", args_list);
 
         if (node->first_child) {
             child = node->first_child;
