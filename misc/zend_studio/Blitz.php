@@ -28,7 +28,6 @@
     define('BLITZ_NODE_TYPE_IF', 6);
     define('BLITZ_NODE_TYPE_UNLESS', 10);
     define('BLITZ_NODE_TYPE_INCLUDE', 14);
-    define('BLITZ_NODE_TYPE_BEGIN', 18);
     define('BLITZ_NODE_TYPE_END', 22);
     define('BLITZ_NODE_TYPE_CONTEXT', 26);
     define('BLITZ_NODE_TYPE_CONDITION', 30);
@@ -39,13 +38,9 @@
     define('BLITZ_NODE_TYPE_WRAPPER_LOWER', 58);
     define('BLITZ_NODE_TYPE_WRAPPER_TRIM', 62);
 
-    define('BLITZ_NODE_TYPE_IF_NF', 86);
-    define('BLITZ_NODE_TYPE_UNLESS_NF', 90);
     define('BLITZ_NODE_TYPE_IF_CONTEXT', 94);
     define('BLITZ_NODE_TYPE_UNLESS_CONTEXT', 98);
-    define('BLITZ_NODE_TYPE_ELSEIF_NF', 102);
     define('BLITZ_NODE_TYPE_ELSEIF_CONTEXT', 106);
-    define('BLITZ_NODE_TYPE_ELSE_NF', 110);
     define('BLITZ_NODE_TYPE_ELSE_CONTEXT', 114);
 
     define('BLITZ_NODE_TYPE_VAR', 5);
